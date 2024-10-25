@@ -11,7 +11,9 @@ pipeline {
         stages {
             stage('Clone Repository') {
                 steps{
-                    git https://github.com/Vasudeva22/Project_breed.git
+
+                    git url: 'https://github.com/Vasudeva22/Project_breed.git'
+                    //git https://github.com/Vasudeva22/Project_breed.git
                     // Use git clone to clone the specified repository
                     // sh 'git clone https://github.com/Vasudeva22/Project_breed.git'
                 }
