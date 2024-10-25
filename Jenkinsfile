@@ -28,13 +28,16 @@ pipeline {
             stage('Build Docker Image') {
                 steps{
                     script {
+
+                        //Build Docker image
+                        sh '''docker build -t my_app_flask:latest .
+                        docker tag my_app_flask:latest 116981809630.dkr.ecr.us-east-1.amazonaws.com/my_app_flask:latest
+                        '''
+                        
                         //log in to Amazon ECR
                         sh'''
                         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 116981809630.dkr.ecr.us-east-1.amazonaws.com
                         '''
-
-                        //Build Docker image
-                        sh 'docker build -t my_app_flask:latest .'
                     }
                 }
             }
