@@ -15,7 +15,13 @@ pipeline {
                     //git url: 'https://github.com/Vasudeva22/Project_breed.git'
                     //git https://github.com/Vasudeva22/Project_breed.git
                     // Use git clone to clone the specified repository
-                     sh 'git clone https://github.com/Vasudeva22/Project_breed.git'
+                    //sh 'git clone https://github.com/Vasudeva22/Project_breed.git'
+                    sh '''
+                    if [ -d "Project_breed" ]; then
+                    rm -rf Project_breed
+                    fi
+                    git clone https://github.com/Vasudeva22/Project_breed.git
+                    '''
                 }
             }
 
