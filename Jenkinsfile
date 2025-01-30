@@ -55,7 +55,7 @@ pipeline {
                         //Update ECS service to use new image 
                         sh '''
                           aws ecs update-service --cluster my_app_flask \
-                                           --service my_app_flask-service \
+                                           --service myapp-service \
                                            --force-new-deployment \
                                            --region us-east-1
                         '''
